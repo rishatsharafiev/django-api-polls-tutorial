@@ -23,7 +23,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip3 install poetry=1.0.9
+            pip3 install poetry==1.0.9
             poetry install
       - save_cache:
           paths:
@@ -34,7 +34,6 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            cd pollsapi
             python manage.py test
 
       - store_artifacts:
