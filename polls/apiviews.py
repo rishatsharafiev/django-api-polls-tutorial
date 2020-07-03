@@ -1,3 +1,4 @@
+from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework import status
@@ -8,12 +9,7 @@ from polls.serializers import (
 )
 
 
-class PollList(generics.ListCreateAPIView):
-    queryset = Poll.objects.all()
-    serializer_class = PollSerializer
-
-
-class PollDetail(generics.RetrieveDestroyAPIView):
+class PollViewSet(viewsets.ModelViewSet):
     queryset = Poll.objects.all()
     serializer_class = PollSerializer
 
